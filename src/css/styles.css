@@ -22,3 +22,27 @@ body {
 .country-list {
   list-style: none;
 }
+
+.country-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  height: 50px;
+}
+
+.country-info {
+  font-size: 22px;
+}
+
+.country-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.country-capital,
+.country-population,
+.country-languages {
+  font-weight: bold;
+}

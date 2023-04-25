@@ -1,3 +1,15 @@
+function createMarkupCountryList(arr) {
+  return arr
+    .map(
+      ({ name: { official }, flags: { svg } }) =>
+        `<li class="country-list-item">
+        <img src="${svg}" alt="flag ${official}" width="30"/>
+        <p>${official}</p>
+      </li>`
+    )
+    .join('');
+}
+
 function createMarkupCountryInfo(arr) {
   return arr
     .map(
@@ -8,27 +20,19 @@ function createMarkupCountryInfo(arr) {
         flags: { svg },
         languages,
       }) =>
-        `<img class="country-img" src="${svg}" alt="flag ${official}" />
-      <h2 class="country-name"><span>${official}</span></h2>
-      <p class="country-capital">Capital: <span>${capital}</span></p>
-      <p class="country-population">Population: <span>${population}</span></p>
-      <p class="country-languages">Languages: <span>${Object.values(
+        `<div class="country-name-wrap">
+      <img class="country-img" src="${svg}" alt="flag ${official}" width="30" />
+      <h2>${official}</h2>
+    </div>
+    <p ><span class="country-capital">Capital: </span>${capital}</p>
+    <p><span class="country-population">Population: </span>${population}</p>
+    <p>
+      <span class="country-languages">Languages: </span>${Object.values(
         languages
-      ).join(', ')}</span></p>`
+      ).join(', ')}
+    </p>`
     )
     .join('');
 }
 
-function createMarkupCountryList(arr) {
-  return arr
-    .map(
-      ({ name: { official }, flags: { svg } }) =>
-        `<li class="country-list-item">
-        <img src="${svg}" alt="flag ${official}"/>
-        <p>${official}</p>
-      </li>`
-    )
-    .join('');
-}
-
-export { createMarkupCountryInfo, createMarkupCountryList };
+export { createMarkupCountryList, createMarkupCountryInfo };
